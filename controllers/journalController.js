@@ -27,6 +27,10 @@ exports.createJournal = async (req,res) => {
     }
 }
 
+
+
+
+
 //Get all journals
 exports.getAllJournals = async (req,res) => {
 

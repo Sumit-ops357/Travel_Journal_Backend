@@ -160,6 +160,3 @@ exports.getUserItineraries = async (req, res) => {
 //   }
 // };
 
-
-
-//Hi i am Sumit

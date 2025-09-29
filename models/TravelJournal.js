@@ -43,3 +43,7 @@ const journalSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('TravelJournal', journalSchema);
+
+
+
+
