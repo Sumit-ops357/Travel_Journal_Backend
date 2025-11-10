@@ -85,3 +85,23 @@ exports.upvoteJournal = async (req, res) => {
         res.status(500).json({ msg: err.message });
     }
 }
+
+// Delete a journal by ID
+exports.deleteJournal = async (req, res) => {
+    try {
+        const journal = await TravelJournal.findById(req.params.id);
+
+        if (!journal)
+            return res.status(404).json({ msg: "Journal not found" });
+
+        // Optional: Only allow the original user to delete (uncomment if needed)
+        // if (journal.user.toString() !== req.user.id) {
+        //     return res.status(403).json({ msg: "Not authorized to delete this journal." });
+        // }
+
+        await journal.deleteOne();
+        res.json({ msg: "Journal deleted successfully." });
+    } catch (err) {
+        res.status(500).json({ msg: err.message });
+    }
+};

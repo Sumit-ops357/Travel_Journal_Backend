@@ -5,7 +5,8 @@ const {
     createJournal,
     getAllJournals,
     getJournalById,
-    upvoteJournal
+    upvoteJournal,
+    deleteJournal  // import the delete controller
 } = require('../controllers/journalController');
 
 const { authMiddleware } = require('../middleware/auth');
@@ -14,5 +15,6 @@ router.post('/', authMiddleware, createJournal);
 router.get('/', getAllJournals);
 router.get('/:id', getJournalById);
 router.post('/:id/upvote', authMiddleware, upvoteJournal);
+router.delete('/:id', authMiddleware, deleteJournal);  // delete route added here
 
 module.exports = router;
